@@ -1,0 +1,299 @@
+<html>
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="gold Mbma badie .png" type="image/icon type">
+
+<head>
+    
+<style> @font-face {
+      font-family: s7;
+      src: url(https://dl.dropbox.com/s/9w04nj4cqqbwr6z/DSEG7Classic-Bold.woff) format('woff');
+  }
+
+  * {
+      padding: 0px;
+      margin: 0px;
+      font-family: sans-serif !important;
+  }
+
+  .main {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(#3A4655, 10%, #3A4655, 90%, #3A4655);
+  }
+
+  .calculator {
+      border-radius: 10px;
+      width: 600px;
+      padding: 20px;
+      background: #EAEBEC;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%)
+  }
+
+  .form-control {
+      display: block;
+      width: 100%;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      text-align: right;
+      font-size: 25px;
+      letter-spacing: .07em;
+      font-style: oblique 10deg;
+      border: 0px;
+      box-shadow: 0 0 0;
+      font-family: "Comic Sans MS", cursive, sans-serif !important;
+  }
+  #answers {
+      letter-spacing: .07em;
+      border-top: 0px;
+      height: 50px;
+      background: transparent;
+      font-size: 35px;
+      float: left;
+      margin-top: -1px;
+      color: #b466cc;
+      width: 65%;
+  }
+
+  #helper {
+      font-family: sans-serif;
+      border-top: 0px;
+      height: 50px;
+      float: left;
+      background: transparent;
+      font-size: 35px;
+      margin-top: -1px;
+      color: #b466cc;
+      width: 35%;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+  }
+
+  #answers::placeholder {
+      color: #a664db;
+      opacity: .8;
+  }
+
+  .form-control:focus {
+      border-color: transparent;
+      outline: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+  }
+
+  .btns button {
+      border-radius: 50px;
+      border: 0px;
+      box-shadow: 0px 0px 2px #a664db;
+      padding: 9px 15px;
+      margin: 10px;
+      color: #602b75;
+      font-weight: 600;
+      font-size: 18px;
+      transition: .2s box-shadow linear;
+      font-style: oblique;
+      cursor: pointer;
+  }
+
+  .btns button:hover {
+      box-shadow: 0px 0px 5px 0px #8d33b7 !important;
+  }
+
+  .btns button:active {
+      box-shadow: 0px 0px 10px black
+  }
+
+  #equal {
+      padding: 9px 47px;
+  }
+
+  #clear {
+      padding: 9px 39px;
+  }
+
+  #desimal {
+      padding: 9px 18px;
+  }
+
+  #multiply {
+      padding: 9px 17px;
+  }
+
+  #devide {
+      padding: 9px 18px;
+  }
+
+  .color {
+      background: #b861f2;
+      color: #fff !important;
+      box-shadow: 0px 0px 5px #b161f2 !important;
+  }
+
+  #backspace {
+      padding: 7px 14px;
+  }
+
+  .sci-btn {
+      width: 80px;
+  }
+  .clear{
+      clear: both;
+  }</style>    
+</head>
+    <body>
+    <script>function backSpace() {
+    box = document.getElementById('input');
+    number = box.value;
+    var len = number.length - 1;
+    var newNumber = number.substring(0, len);
+    box.value = newNumber;
+}
+
+function cler() {
+    document.getElementById('input').value = '';
+    document.getElementById('answers').value = '';
+    document.getElementById('helper').value = '';
+}
+
+function isInputNumber(evt) {
+    var ch = String.fromCharCode(evt.which);
+    if (!(/[0-9]/.test(ch))) {
+        evt.preventDefault();
+    }
+}
+
+function calc(type) {
+    // get the value of the input when the button is clicked
+    const value = document.getElementById('input').value;
+    // declare the result
+    let result = 0;
+    helper = "";
+    switch (type) {
+        case 'sin':
+            result = Math.sin(value);
+            helper = "Sin " + value + " =";
+            break;
+        case 'cos':
+            result = Math.cos(value);
+            helper = "Cos " + value + " =";
+            break;
+        case 'tan':
+            result = Math.tan(value);
+            helper = "Tan " + value + " =";
+            break;
+        case 'sin-':
+            result = Math.asin(value);
+            helper = "Sin  " + value + " =";
+            break;
+        case 'cos-':
+            result = Math.acos(value);
+            helper = "Cos " + value + " =";
+            break;
+        case 'tan-':
+            result = Math.atan(value);
+            helper = "Tan " + value + " =";
+            break;
+        case 'log':
+            result = Math.log(value);
+            helper = "log " + value + " =";
+            break;
+        case 'log-':
+            result = Math.exp(value);
+            helper = "Tan " + value + " =";
+            break;
+        case 'log10':
+            result = Math.log10(value);
+            helper = "Log10 " + value + " =";
+            break;
+        case 'square':
+            result = Math.pow(value, 2);
+            helper = value + "Pow 2 =";
+            break;
+        case 'third':
+            result = Math.pow(value, 3);
+            helper = value + "Pow 3 =";
+            break;
+        case 'root':
+            result = Math.sqrt(value);
+            
+            helper ="Root of"+  value + " =";
+            break;
+        default:
+            break;
+    }
+    
+    // show the result in the input
+    document.getElementById('answers').value = result;
+    document.getElementById('helper').value = helper;
+    
+}
+
+function swp() {
+    var outputval = document.getElementById('answers').value;
+    document.getElementById('input').value = outputval;
+
+}</script>
+    </body>
+<div class="main">
+    <div class="calculator">
+        <form name="forms" class="forms">
+            <div class="screen">
+                <input type="text" name="input" class=" form-control" id="input" placeholder="NO" autocomplete="off"
+                    onkeypress="isInputNumber(event)">
+                <div class="input-group">
+                    <input type="text" id="helper" class="form-control" readonly="true">
+                    <input type="text" name="answers" class="form-control" placeholder="ANSWER" readonly="readonly"
+                        id="answers">
+                        <span class="clear"></span>
+                </div>
+            </div>
+            
+            
+            <div class="buttons">
+                <div class="btns main-buttons">
+                    <button type="button" id="clear" onclick="cler()">AC</button>
+                    <button type="button" id="backspace" onclick="backSpace()">C</button>
+                    <button type="button" id="devide" class="color" onclick="forms.input.value +='/'">/</button>
+                    <button type="button" class="sci-btn" onclick="calc('sin')">Sin</button>
+                    <button type="button" class="sci-btn" onclick="calc('cos')">Cos</button>
+                    <button type="button" class="sci-btn" onclick="calc('tan')">Tan</button>
+                    <button type="button" onclick="forms.input.value +='7'">7</button>
+                    <button type="button" onclick="forms.input.value +='8'">8</button>
+                    <button type="button" onclick="forms.input.value +='9'">9</button>
+                    <button type="button" class="color" id="multiply" onclick="forms.input.value +='*'">*</button>
+                    <button type="button" class="sci-btn" onclick="calc('sin-')">Sin<sup>-1</sup> </button>
+                    <button type="button" class="sci-btn" onclick="calc('cos-')">Cos<sup>-1</sup></button>
+                    <button type="button" class="sci-btn" onclick="calc('tan-')">Tan<sup>-1</sup></button>
+                    <button type="button" onclick="forms.input.value +='4'">4</button>
+                    <button type="button" onclick="forms.input.value +='5'">5</button>
+                    <button type="button" onclick="forms.input.value +='6'">6</button>
+                    <button type="button" class="color" id="multiply" onclick="forms.input.value +='-'">-</button>
+                    <button type="button" class="sci-btn" onclick="calc('log10')">log<sub><sub>10</sub></sub></button>
+                    <button type="button" class="sci-btn" onclick="calc('log')">log</button>
+                    <button type="button" class="sci-btn" onclick="calc('log-')">log<sup>-1</sup></button>
+                    <button type="button" onclick="forms.input.value +='1'">1</button>
+                    <button type="button" onclick="forms.input.value +='2'">2</button>
+                    <button type="button" onclick="forms.input.value +='3'">3</button>
+                    <button type="button" class="color" onclick="forms.input.value +='+'">+</button>
+                    <button type="button" class="sci-btn" onclick="calc('root')">&radic;</button>
+                    <button type="button" class="sci-btn" onclick="forms.input.value +='3.14159265359'">&#960;</button>
+                    <button type="button" class="sci-btn" onclick="calc('square')">X<sup><sup>2</sup></sup></button>
+                    <button type="button" onclick="forms.input.value +='0'">0</button>
+                    <button type="button" id="desimal" onclick="forms.input.value +='.'">.</button>
+                    <button type="button" class="color" id="equal" onclick="forms.answers.value= eval(forms.input.value)">=</button>
+                    <button type="button" class="sci-btn" onclick="calc('third')">X<sup><sup>3</sup></sup></button>
+                    <button type="button" class="sci-btn" onclick="forms.input.value +='**'">X <sup><sup>y</sup></sup></button>
+                    <button type="button" class="sci-btn" onclick="swp()">Ans+</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    </html>

@@ -1,0 +1,66 @@
+<html>
+    <title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+    <body>
+    <script src="myscripts.js"></script>
+    </body>
+<div class="main">
+    <div class="calculator">
+        <form name="forms" class="forms">
+            <div class="screen">
+                <input type="text" name="input" class=" form-control" id="input" placeholder="NO" autocomplete="off"
+                    onkeypress="isInputNumber(event)">
+                <div class="input-group">
+                    <input type="text" id="helper" class="form-control" readonly="true">
+                    <input type="text" name="answers" class="form-control" placeholder="ANSWER" readonly="readonly"
+                        id="answers">
+                        <span class="clear"></span>
+                </div>
+            </div>
+            
+            
+            <div class="buttons">
+                <div class="btns main-buttons">
+                    <button type="button" id="clear" onclick="cler()">AC</button>
+                    <button type="button" id="backspace" onclick="backSpace()">C</button>
+                    <button type="button" id="devide" class="color" onclick="forms.input.value +='/'">/</button>
+                    <button type="button" class="sci-btn" onclick="calc('sin')">Sin</button>
+                    <button type="button" class="sci-btn" onclick="calc('cos')">Cos</button>
+                    <button type="button" class="sci-btn" onclick="calc('tan')">Tan</button>
+                    <button type="button" onclick="forms.input.value +='7'">7</button>
+                    <button type="button" onclick="forms.input.value +='8'">8</button>
+                    <button type="button" onclick="forms.input.value +='9'">9</button>
+                    <button type="button" class="color" id="multiply" onclick="forms.input.value +='*'">*</button>
+                    <button type="button" class="sci-btn" onclick="calc('sin-')">Sin<sup>-1</sup> </button>
+                    <button type="button" class="sci-btn" onclick="calc('cos-')">Cos<sup>-1</sup></button>
+                    <button type="button" class="sci-btn" onclick="calc('tan-')">Tan<sup>-1</sup></button>
+                    <button type="button" onclick="forms.input.value +='4'">4</button>
+                    <button type="button" onclick="forms.input.value +='5'">5</button>
+                    <button type="button" onclick="forms.input.value +='6'">6</button>
+                    <button type="button" class="color" id="multiply" onclick="forms.input.value +='-'">-</button>
+                    <button type="button" class="sci-btn" onclick="calc('log10')">log<sub><sub>10</sub></sub></button>
+                    <button type="button" class="sci-btn" onclick="calc('log')">log</button>
+                    <button type="button" class="sci-btn" onclick="calc('log-')">log<sup>-1</sup></button>
+                    <button type="button" onclick="forms.input.value +='1'">1</button>
+                    <button type="button" onclick="forms.input.value +='2'">2</button>
+                    <button type="button" onclick="forms.input.value +='3'">3</button>
+                    <button type="button" class="color" onclick="forms.input.value +='+'">+</button>
+                    <button type="button" class="sci-btn" onclick="calc('root')">&radic;</button>
+                    <button type="button" class="sci-btn" onclick="forms.input.value +='3.14159265359'">&#960;</button>
+                    <button type="button" class="sci-btn" onclick="calc('square')">X<sup><sup>2</sup></sup></button>
+                    <button type="button" onclick="forms.input.value +='0'">0</button>
+                    <button type="button" id="desimal" onclick="forms.input.value +='.'">.</button>
+                    <button type="button" class="color" id="equal" onclick="forms.answers.value= eval(forms.input.value)">=</button>
+                    <button type="button" class="sci-btn" onclick="calc('third')">X<sup><sup>3</sup></sup></button>
+                    <button type="button" class="sci-btn" onclick="forms.input.value +='**'">X <sup><sup>y</sup></sup></button>
+                    <button type="button" class="sci-btn" onclick="swp()">Ans+</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    </html>
