@@ -5,3 +5,5 @@
 <br>• Other mathematic operations Cos, Sin, Tan, roots etc.
 </p>
 https://wxv7z8okt0dxroatvzzzcq-on.drv.tw/calculaterMbmaBadie/
+
+<img src="calculator.jpg" alt="calculator">
